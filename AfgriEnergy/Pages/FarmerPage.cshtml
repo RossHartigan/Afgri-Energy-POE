@@ -1,0 +1,119 @@
+﻿@page
+@model AfgriEnergy.Pages.FarmerPageModel
+@{
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Farmer Page</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+    <style>    
+
+        input[type="text"],
+        input[type="date"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+            input[type="submit"]:hover {
+                background-color: #0056b3;
+            }
+
+                
+    </style>
+</head>
+
+<body>
+   
+    <br />
+    <br />
+    <br />
+
+    <h1>Farmers</h1>
+
+    <br />
+    <br />
+
+    <h2>Add Product</h2>
+
+    <br />
+    <br />
+
+    <div class="add-product">
+        <form method="post" asp-page-handler="AddProduct">
+            <div class="form-group">
+                <label for="productName">Product Name:</label>
+                <input type="text" id="productName" name="productName" placeholder="Enter product name" required>
+            </div>
+            <div class="form-group">
+                <label for="category">Category:</label>
+                <select id="category" name="category" required>
+                    <option value="">Select category</option>
+                    <option value="Fruit">Fruit</option>
+                    <option value="Vegetable">Vegetable</option>
+                    <option value="Grain">Grain</option>
+                    <option value="Meat">Meat</option>
+                    <option value="Crops">Crops</option>
+                    <option value="Dairy">Dairy</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="productionDate">Production Date:</label>
+                <input type="date" id="productionDate" name="productionDate" required>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="ADD PRODUCT">
+            </div>
+        </form>
+    </div>
+
+
+    <br />
+    <br />
+
+    <h2>Your Products</h2>
+
+    <br />
+    <br />
+
+    <div class="products">
+        <table class="table" id="product-table">
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Category</th>
+                    <th>Production Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var x in Model.ProductList.Where(p => p.UserID == Model.DefaultUserID))//filter products based on session User ID
+                {
+                    <tr>
+                        <td>@x.ProductName</td>
+                        <td>@x.Category</td>
+                        <td>@x.ProductionDate.Date.ToString("yyyy/MM/dd")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</body>
+
+</html>

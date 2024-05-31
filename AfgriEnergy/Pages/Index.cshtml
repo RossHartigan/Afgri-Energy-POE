@@ -1,0 +1,79 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login Page</title>
+    <style>
+
+        .navbar {
+            visibility: collapse;
+        }        
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+            input[type="submit"]:hover {
+                background-color: #0056b3;
+            }
+
+        .register-link {
+            margin-top: 20px;
+        }
+
+            .register-link a {
+                color: #007bff;
+                text-decoration: none;
+            }
+
+                .register-link a:hover {
+                    text-decoration: underline;
+                }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="login-container">
+            <h1>Login</h1>
+            <form method="post" asp-page-handler="Login">
+                <input type="text" name="email" placeholder="E-Mail" required>
+                <br>
+                <input type="password" name="password" placeholder="Password" required>
+                <br>
+                <input type="submit" value="Login">
+            </form>
+            <br>
+            <div class="register-link">
+                <p>Don't have an account? <a asp-page="/RegisterPage">Register here</a></p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+

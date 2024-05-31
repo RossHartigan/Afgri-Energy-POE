@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\AfgriEnergy.props" />
+</Project>

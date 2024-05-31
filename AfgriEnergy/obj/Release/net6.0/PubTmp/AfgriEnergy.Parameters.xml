@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="AfgriEnergy-ST10088758" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\rossh\\OneDrive\ -\ ADvTECH\ Ltd\\Varsity\\Year\ 4\\Programming\\Sem\ 1\\POE\\PART\ 2\\AfgriEnergy\\AfgriEnergy\\obj\\Release\\net6\.0\\PubTmp\\Out\\$" />
+  </parameter>
+</parameters>
